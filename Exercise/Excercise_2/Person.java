@@ -1,6 +1,6 @@
 package Exercise.Excercise_2;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 /*
 Esercizio 5 / Persons and Students
@@ -17,9 +17,9 @@ Deﬁnire le classi Person, Student e Grade
 class Person {
     private String name;
     private String surname;
-    private Date birthDate;
+    private LocalDate birthDate;
 
-    public Person(String name, String surname, Date birthDate)
+    public Person(String name, String surname, LocalDate birthDate)
     {
         this.name = name;
         this.surname = surname;
@@ -34,7 +34,7 @@ class Person {
         return this.surname;
     }
 
-    protected Date getBirthDate(){
+    protected LocalDate getBirthDate(){
         return this.birthDate;
     }
 }

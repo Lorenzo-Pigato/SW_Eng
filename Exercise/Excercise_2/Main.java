@@ -1,10 +1,10 @@
 package Exercise.Excercise_2;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 public class Main {
     public static void main(String[] args) {
-        Student lorenzo = new Student("Lorenzo", "Pigato", new Date (2002-1900,6,11), "10766655");
+        Student lorenzo = new Student("Lorenzo", "Pigato", LocalDate.of(2002,6,11), "10766655");
         
         try {
             System.out.println("Mean of grades: " + lorenzo.meanGrade());
