@@ -1,4 +1,4 @@
-package Exercise.Excercise_1;
+package Exercise.Exercise_1;
 
 /*
 Ingegneria del Software

@@ -1,11 +1,20 @@
-package Exercise.Excercise_3;
+package Exercise.Exercise_2;
 
 import java.time.LocalDate;
 import java.util.List;
-
-
 import java.util.ArrayList;
 
+/*
+Esercizio 5 / Persons and Students
+
+Deﬁnire le classi Person, Student e Grade
+    👉 Una persona ha un nome, cognome e una data ( java.util.Date).
+    👉 Uno studente è una persona con un id e una lista di voti.
+    👉 Un voto contiene punteggio e crediti.
+    👉 Lo studente espone due funzionalità:
+        ○ Metodo meanGrade per calcolare media pesata.
+        ○ Metodo canGraduate se è possibile che si laurei (crediti totali >= 180).
+*/
 
 class Student extends Person {
     String id;
@@ -42,21 +51,6 @@ class Student extends Person {
         
         if(Double.isNaN(mean)) throw new Exception();
         else return mean;
-    }
-
-    @Override
-    public int compareTo(Person p) {
-        int personComp = super.compareTo(p);
-
-        if(p instanceof Student)
-        {
-            if (personComp == 0) {
-                return ((Student)p).getId().compareTo(id);
-            }
-            else return personComp;
-        }
-        else
-            throw new RuntimeException("Can't compare Student with Unknown");
     }
 }
 

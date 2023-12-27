@@ -1,4 +1,4 @@
-package Exercise.Excercise_3;
+package Exercise.Exercise_3;
 
 import java.time.LocalDate;
 import java.lang.Comparable;
