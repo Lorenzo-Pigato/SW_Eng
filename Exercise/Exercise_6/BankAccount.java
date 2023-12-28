@@ -26,17 +26,22 @@ public class BankAccount {
         this.balance = balance;
     }
 
-    public void withdraw(double amount) throws NegativeAmountException, InsufficientFundsException {
-        if (amount < 0) {
-            throw new NegativeAmountException(amount);
+    public void withdraw(double amount) {
+
+        try {
+            if(amount < 0)
+                throw new NegativeAmountException(amount);
+
+            else if (balance - amount < 0) 
+                throw new InsufficientFundsException(amount, balance);
+            
+            else 
+                balance -= amount;
+            
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
-        else if (balance - amount < 0){
-            throw new InsufficientFundsException(amount, balance);
-        }
-
-        else
-            balance -= amount;
     }
 
     public double getBalance() {
@@ -54,24 +59,10 @@ class Main{
     public static void main (String[] args){
         BankAccount bank = new BankAccount("0001", 1200);
         
-        try {
-            bank.withdraw(-10);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
+        bank.withdraw(-10);
+        bank.withdraw(1300);
+        bank.withdraw(155.73);
 
-        try {
-            bank.withdraw(1300);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        try {
-            bank.withdraw(155.73);
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
-        }
-
-        System.out.println(bank.getBalance());
+        System.out.println("Available balance after transactions: " + bank.getBalance() + "$");
     }
 }
