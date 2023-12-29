@@ -24,24 +24,55 @@ import java.util.Iterator;
     
     👉 Rendere clonabile la classe Database con (Cloneable).
  */
-public class Database<T extends Entity> implements Iterable<T>{
+
+public class Database<T extends Entity> implements Iterable<T>, Cloneable {
     private List<T> dataset = new LinkedList<>();
 
-    public void add(T entity){
-        dataset.add(entity);
+    public void add(T entity) {
+        try {
+            if (this.find(entity.getId()) != null)
+                throw new Exception();
+            dataset.add(entity);
+        } catch (Exception e) {
+            System.out.println("Object Id is redundant, please change Id");
+        }
     }
 
-    public void add(List<T> entityList){
+    public void add(List<T> entityList) {
         for (T entity : entityList) {
             dataset.add(entity);
         }
     }
-    
-    public void remove(T entity){
-        dataset.remove(entity);
+
+    public void remove(T entity) {
+        try {
+            if (this.find(entity.getId()) == null)
+                throw new Exception();
+            dataset.remove(entity);
+        } catch (Exception e) {
+            System.out.println("Object Id is not found, thus not removed");
+        }
+        
     }
 
-    public T find(String id){
+    public void update(String id, T newEntity){
+        try {
+            T obj = this.find(id);
+            if (obj == null)
+                throw new Exception();
+            
+            System.out.println(obj == this.find(id));
+            this.remove(obj);
+            this.add(newEntity);
+
+        } catch (Exception e) {
+            System.out.println("Object Id is not found, adding new Object to database");
+
+            dataset.add(newEntity);
+        }
+    }
+
+    public T find(String id) {
         for (T data : dataset) {
             if (data.getId().equals(id))
                 return data;
@@ -50,8 +81,8 @@ public class Database<T extends Entity> implements Iterable<T>{
         return null;
     }
 
-    public void displayAll(){
-        for(T data: dataset) {
+    public void displayAll() {
+        for (T data : dataset) {
             data.displayDetails();
         }
         System.out.println("-------");
@@ -59,11 +90,29 @@ public class Database<T extends Entity> implements Iterable<T>{
 
     // Iterator
     @Override
-    public Iterator<T> iterator(){
+    public Iterator<T> iterator() {
         return new DatabaseIterator<T>(this.dataset);
     }
-}
 
+    // Cloneable
+    @Override
+    protected Database<T> clone() {
+        Database<T> newDatabase = this;
+        return newDatabase;
+    }
+
+
+
+    public static void main(String[] args) {
+        Database<Entity> data = new Database<Entity>(); 
+        Person pp1 = new Person("0001", "Mario", "Rossi");
+        Person pp2 = new Person("0001", "Pietro", "Negri");
+
+        data.add(pp1);
+        data.update("0001", pp2);
+        data.displayAll();
+    }
+}
 
 // Iterator definition
 
@@ -71,13 +120,13 @@ class DatabaseIterator<T> implements Iterator<T> {
     private List<T> dataset;
     private int index = 0;
 
-    public DatabaseIterator (List<T> dataset){
+    public DatabaseIterator(List<T> dataset) {
         this.dataset = dataset;
     }
 
     @Override
     public boolean hasNext() {
-        if(dataset.get(index++) != null) 
+        if (dataset.get(index++) != null)
             return true;
         return false;
     }
@@ -86,5 +135,5 @@ class DatabaseIterator<T> implements Iterator<T> {
     public T next() {
         return dataset.get(index);
     }
-    
+
 }
