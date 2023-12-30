@@ -56,5 +56,3 @@ public class FunctionalArray extends ArrayList<Triangle> {
     }
 } 
 
-
-//////IMPORTANT: IMPLEMENT AGAIN WITH GENERICSSSSS

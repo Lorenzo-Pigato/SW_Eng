@@ -1,4 +1,4 @@
-package Exercise.Exercise_9;
+package Exercise.Exercise_9B;
 
 public class Triangle {
     private double[] edges;
@@ -13,6 +13,10 @@ public class Triangle {
             this.edges = edges; 
         else
             throw new IllegalArgumentException("These edges can't form a valid triangle");
+    }
+
+    public void display() {
+        System.out.println("Edges: " + edges[0] + " " + edges[1] + " " + edges[2] + " ");
     }
 
     public double getPerimeter(){
