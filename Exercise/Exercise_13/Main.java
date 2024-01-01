@@ -39,6 +39,10 @@ public class Main {
             public void run() {
                 while (true) {
                     for (int i = 0; i < 4; i++) {
+                        /*
+                         * Buffer will be displayed in order due to the for cycle, which calls buffer.read()
+                         * the first buffer called will take the token for read() method and release it only when filled
+                         */
                         char ch = bufferArray[i].read();
                         String result = "<" + i + "," + ch + "> ";
                         System.out.println("Processing Output: " + result);
