@@ -1,4 +1,4 @@
-package exams.e2017_07_20.exercise_1;
+package exams.e2016_07_20.exercise_1;
 
 /*
 Esercizio 1 (10 punti)

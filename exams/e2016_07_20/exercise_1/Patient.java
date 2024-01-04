@@ -1,4 +1,4 @@
-package exams.e2017_07_20.exercise_1;
+package exams.e2016_07_20.exercise_1;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
