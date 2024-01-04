@@ -18,6 +18,7 @@ pilazione (spiegare brevemente le risposte):
 11 Ratto[] array = new Topolino[10];
  */
 
+
 public class Main {
     public static void main(String[] args) {
         Roditore ro;
