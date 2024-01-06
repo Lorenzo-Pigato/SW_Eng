@@ -5,6 +5,7 @@ import java.util.List;
 public class MinUtil {
     //(List<? extends Comparable) allows to not define which class is extending Comparable. "?" is called wildcard
 
+    @SuppressWarnings("rawtypes")
     public static Comparable min (List<? extends Comparable> list) {
         Comparable actualMin = null;
 

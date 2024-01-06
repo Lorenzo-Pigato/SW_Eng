@@ -4,6 +4,7 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.Scanner;
 
+@SuppressWarnings("resource")
 public class ParrotExtServer {
     public static void main(String[] args) {
         
@@ -11,6 +12,7 @@ public class ParrotExtServer {
         System.out.print("Welcome to ParrotServer - Extended\nInsert port number to start the service: ");
         int portAddress = Integer.parseInt(input.nextLine());
         input.close();
+        
         
         try {
             ServerSocket serverSocket = new ServerSocket(portAddress);
