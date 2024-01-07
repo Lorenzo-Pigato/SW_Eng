@@ -19,6 +19,7 @@ pilazione (spiegare brevemente le risposte):
  */
 
 
+@SuppressWarnings ("unused")
 public class Main {
     public static void main(String[] args) {
         Roditore ro;
