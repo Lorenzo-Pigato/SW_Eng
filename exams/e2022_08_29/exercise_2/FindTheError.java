@@ -17,6 +17,8 @@ public class FindTheError {
         System.out.println("12 " + d4.dateDistance(d5));
         System.out.println("13 " + d5.dateDistance(d3));
         //System.out.println(d5.dateDistance(d6));
+
+        System.out.println(d3.month);
     }
 }
 
