@@ -3,29 +3,25 @@ package exams.e2022_06_24.exercise_3;
 public class Font implements Elaborate {
     private Format format = null;
     private Color color = null;
-    private Elaborate origin;
 
-    public Font(Elaborate origin, Format format){
+    public Font(Format format){
         this.format = format;
-        this.origin = origin;
     }
 
-    public Font(Elaborate origin, Color color){
+    public Font(Color color){
         this.color = color;
-        this.origin = origin;
     }
 
-    public Font(Elaborate origin, Format format, Color color){
+    public Font(Format format, Color color){
         this.format = format;
         this.color = color;
-        this.origin = origin;
     }
 
     @Override
     public String writeText(String str) {
         return (color != null ? color.getCode() : "") + 
                 (format != null ? format.getCode() : "") + 
-                origin.writeText(str) + 
+                str + 
                 Format.RESET.getCode();
     }
 
@@ -70,18 +66,18 @@ public class Font implements Elaborate {
     }
 }
 
-class Select {
-    public Elaborate apply(Elaborate text, String modifier) {
+class FormattedText {
+    public static String apply(String text, String modifier) {
         
         for (Font.Format format : Font.Format.values() ) {
             if(format.name().equalsIgnoreCase(modifier)){
-                return new Font(text, format);
+                return new Font(format).writeText(text);
             }
         }
 
         for (Font.Color color : Font.Color.values() ) {
             if(color.name().equalsIgnoreCase(modifier)){
-                return new Font(text, color);
+                return new Font(color).writeText(text);
             }
         }
 
