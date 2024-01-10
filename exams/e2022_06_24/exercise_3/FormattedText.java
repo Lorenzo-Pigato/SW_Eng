@@ -1,6 +1,6 @@
 package exams.e2022_06_24.exercise_3;
 
-public class Font implements Elaborate {
+class Font implements Elaborate {
     private Format format = null;
     private Color color = null;
 
@@ -66,7 +66,7 @@ public class Font implements Elaborate {
     }
 }
 
-class FormattedText {
+public class FormattedText {
     public static String apply(String text, String modifier) {
         
         for (Font.Format format : Font.Format.values() ) {
