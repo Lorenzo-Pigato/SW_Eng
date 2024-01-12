@@ -6,7 +6,7 @@ public class Specs {
      * 
      * @ensures (\result == true) <==> (this.fresSpace() > e.getSize());
      * @ensures (\forall int i; i>=0 && i < \old.this.objects().size(); 
-     *              this.objects().get(i).equals(this.objects().get(i)) && 
+     *              this.objects().get(i).equals(\old.this.objects().get(i)) && 
      *              this.objects().get(\old.this.objects().size()).equals(e));
      * 
      * @singals (AlreadyFullException afe) this.freeSpace <= 0;
