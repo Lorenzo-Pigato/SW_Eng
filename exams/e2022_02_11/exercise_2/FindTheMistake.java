@@ -28,6 +28,7 @@ class Persona {
     public void guida(Auto a) {
         System.out.println(nome + " guida " + a.modello());
     }
+
 }
 
 class Autista extends Persona {
