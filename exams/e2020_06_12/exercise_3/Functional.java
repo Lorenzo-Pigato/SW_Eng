@@ -1,4 +1,4 @@
-package exams;
+package exams.e2020_06_12.exercise_3;
 
 import java.util.List;
 
@@ -17,7 +17,8 @@ import java.util.List;
     }
     e si riscriva la stessa funzione in stile funzionale.
  */
-public class Functional_b {
+
+public class Functional {
     public static int method(int v, List<String> values){
         return (v == 0 || values == null ? 0 : values.stream().filter(s -> s.length() >= 3)
                                                               .map(s -> (s.charAt(0) != 'A' ? s.length() : 1))

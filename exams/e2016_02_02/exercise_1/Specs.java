@@ -16,7 +16,7 @@ public class Specs {
     /*
      * @requires a != null
      * @ensures (\result == -1) <==> (d1>d2 || di<0 || d2 >= a.length) &&
-     *          (\result == 0) <==> (\exists int i; i > 0 && i<a.length; a[i] < a[i-1]) &&
+     *          (\result == 0) <==> (\exists int i; i >= d1 && i<= d2; a[i] < a[i-1]) &&
      *          (\result) == (\sum int i; i>=d1 && i >= d2; a[i]);
      */
      int method_2(int[] a, int d1, int d2){return 0;}
