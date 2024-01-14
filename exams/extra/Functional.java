@@ -1,4 +1,4 @@
-package exams;
+package exams.extra;
 
 import java.util.Arrays;
 import java.util.List;
