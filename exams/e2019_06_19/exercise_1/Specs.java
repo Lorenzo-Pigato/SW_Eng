@@ -1,4 +1,4 @@
-package exams.e2019_06_19;
+package exams.e2019_06_19.exercise_1;
 
 /*
  * Esercizio 1 (8 punti)
